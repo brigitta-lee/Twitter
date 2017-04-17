@@ -1,7 +1,6 @@
 {
   "name": "tweetstream",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +9,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "lodash": "^4.17.4",
+    "path": "^0.12.7",
+    "twit": "^2.2.5",
     "twitter": "^1.7.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigitta-lee/Twitter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/brigitta-lee/Twitter/issues"
+  },
+  "homepage": "https://github.com/brigitta-lee/Twitter#readme",
+  "description": ""
 }
