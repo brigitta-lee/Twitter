@@ -51,15 +51,17 @@ var T= new Twit({
 //
 // fetchHashtag();
 
+//---trying to get streaming API to work. No luck yet!
 var streamHashtag= function (req, res) {
-  T.stream('statuses/filter',{track:'montana'},
+  T.stream('statuses/filter', {track:'montana'},
       function(error, data, response) {
-        console.log("why are you not working" + data);
+        console.log(data);
       }
     );
   };
 
 streamHashtag();
+
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -69,12 +71,3 @@ app.set('port', process.env.PORT || 4000);
 var server= app.listen(app.get('port'), function(){
   console.log("express server listening : on port" + server.address().port);
 });
-
-
-//
-// var params = {screen_name: 'nodejs'};
-// client.get('statuses/user_timeline', params, function(error, tweets, response) {
-//   if (!error) {
-//     console.log(tweets[0]);
-//   }
-// });
