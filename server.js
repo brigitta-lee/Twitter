@@ -28,7 +28,7 @@ var T= new Twit({
 });
 
 
-//---fetches tweets by username
+// //---fetches tweets by username
 // var fetchTwitterData= function(req, res) {
 //   var twitterHandle = "academicpilot";
 //   T.get('statuses/user_timeline', {screen_name: twitterHandle, count:2},
@@ -40,7 +40,7 @@ var T= new Twit({
 //
 // fetchTwitterData();
 
-//---fetches tweets containing specified hashtag
+// //---fetches tweets containing specified hashtag
 // var fetchHashtag= function (req, res) {
 //   T.get('search/tweets', {q:'%23montanamoment', count:5},
 //     function(error, data, response) {
@@ -48,20 +48,14 @@ var T= new Twit({
 //     }
 //   );
 // };
-//
+
 // fetchHashtag();
 
-//---trying to get streaming API to work. No luck yet!
-var streamHashtag= function (req, res) {
-  T.stream('statuses/filter', {track:'montana'},
-      function(error, data, response) {
-        console.log(data);
-      }
-    );
-  };
-
-streamHashtag();
-
+//---streams tweets containing a word or hashtag
+var stream = T.stream('statuses/filter', {track:'montana'})
+    stream.on('tweet', function (tweet){
+      console.log(tweet);
+    })
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
